@@ -1,0 +1,175 @@
+/* Include padding and border in element widths so layouts don't overflow */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  color: #222;
+  background-color: #eef1f6;
+}
+
+/* Coloured header */
+header {
+  background-color: #1f3a8a;
+  color: #fff;
+  text-align: center;
+  padding: 24px 16px;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header p {
+  margin: 4px 0 0;
+}
+
+/* Centred main column, max 700px wide */
+main {
+  max-width: 700px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+/* White section cards with rounded corners */
+section {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Flexbox form: controls sit in a row and wrap if needed */
+#note-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+#note-form input {
+  flex: 1 1 200px;
+}
+
+input,
+select {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #999;
+  border-radius: 6px;
+}
+
+#search-input {
+  width: 100%;
+}
+
+button {
+  background-color: #1f3a8a;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+button.danger {
+  background-color: #b91c1c;
+  margin-top: 12px;
+}
+
+/* Error message styled in red */
+#error-message {
+  color: red;
+  font-weight: bold;
+  min-height: 1.2em;
+  margin: 10px 0 0;
+}
+
+#note-count {
+  color: #555;
+}
+
+/* Notes list and note cards */
+#notes-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.note-card {
+  background-color: #f8f9fc;
+  border: 1px solid #ddd;
+  border-left: 6px solid #999; /* default; overridden by category classes */
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+}
+
+.note-card p {
+  margin: 0 0 6px;
+  word-wrap: break-word;
+}
+
+.note-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.note-category {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.delete-btn {
+  background-color: #b91c1c;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+}
+
+/* Each category gets its own left-border colour */
+.category-personal {
+  border-left-color: teal;
+}
+
+.category-work {
+  border-left-color: darkred;
+}
+
+.category-study {
+  border-left-color: blue;
+}
+
+/* Message shown when a search finds nothing */
+.no-results {
+  color: #666;
+  font-style: italic;
+}
+
+/* On screens 600px or narrower, stack the form controls vertically */
+@media (max-width: 600px) {
+  #note-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #note-form input,
+  #note-form select,
+  #note-form button {
+    width: 100%;
+  }
+}
