@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Required meta tags: character encoding + responsive viewport -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuickNotes</title>
+
+  <!-- Stylesheet link (checked by the assignment) -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Script loaded with defer so the DOM exists before the code runs -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Semantic structure: header (app name + tagline), main, footer -->
+  <header>
+    <h1>QuickNotes</h1>
+    <p>Capture your ideas, fast.</p>
+  </header>
+
+  <main>
+    <!-- Section 1: "Add a note" contains the form and the error paragraph -->
+    <section>
+      <h2>Add a note</h2>
+
+      <!-- novalidate lets our own JavaScript show the validation messages -->
+      <form id="note-form" novalidate>
+        <!-- Label correctly linked to the input through for/id -->
+        <label for="note-input">Note</label>
+        <input type="text" id="note-input" name="note" placeholder="Type your note...">
+
+        <!-- Category dropdown with the three required options -->
+        <label for="note-category">Category</label>
+        <select id="note-category" name="category">
+          <option value="personal">Personal</option>
+          <option value="work">Work</option>
+          <option value="study">Study</option>
+        </select>
+
+        <!-- Submit button -->
+        <button type="submit">Add Note</button>
+      </form>
+
+      <!-- Empty error paragraph, filled by script.js when validation fails -->
+      <p id="error-message"></p>
+    </section>
+
+    <!-- Section 2: "Your notes" contains search, count and the notes list -->
+    <section>
+      <h2>Your notes</h2>
+
+      <!-- Search box for filtering notes -->
+      <input type="text" id="search-input" placeholder="Search notes..." aria-label="Search notes">
+
+      <!-- Count paragraph, e.g. "You have 3 notes." -->
+      <p id="note-count"></p>
+
+      <!-- Empty list where note cards are rendered -->
+      <ul id="notes-list"></ul>
+
+      <!-- Bonus: Clear all button (asks for confirmation in script.js) -->
+      <button type="button" id="clear-all-btn" class="danger">Clear all</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 QuickNotes. All rights reserved.</p>
+  </footer>
+</body>
+</html>
